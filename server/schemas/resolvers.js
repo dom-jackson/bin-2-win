@@ -1,8 +1,5 @@
 const resolvers = {
   Query: {
-    hello: () => ({}),
-  },
-  HelloMessage: {
     message: (_, { name }) => `Hello ${name}`,
   },
 };
