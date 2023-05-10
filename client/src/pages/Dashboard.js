@@ -1,11 +1,12 @@
+import { Container } from '@chakra-ui/react';
 import NewAccount from './NewAccount';
 
 const Dashboard = () => {
   return (
-    <div>
+    <Container>
       <h1>Create Account</h1>
       <NewAccount />
-    </div>
+    </Container>
   );
 };
 

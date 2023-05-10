@@ -1,3 +1,15 @@
+import {
+  Button,
+  Container,
+  RadioGroup,
+  Stack,
+  Radio,
+  Input,
+  FormControl,
+  FormLabel,
+  InputGroup,
+  InputLeftAddon,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 
 export function NewPickup() {
@@ -14,52 +26,72 @@ export function NewPickup() {
   };
 
   return (
-    <div>
-      <h1>Book a Pickup</h1>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          type="datetime-local"
-          name="date"
-          placeholder="Date & Time of Pickup"
-          value={date}
-          onChange={handleChangeDate}
-        />
-        <input type="text" name="address" placeholder="Pickup Address" />
-        <input
-          type="radio"
-          id="paper"
-          name="recycle_material"
-          value="Paper"
-        ></input>
-        <label for="paper">Paper</label>
-        <input
-          type="radio"
-          id="cardboard"
-          name="recycle_material"
-          value="Cardboard"
-        ></input>
-        <label for="cardboard">Cardboard</label>
-        <input
-          type="radio"
-          id="plastic"
-          name="recycle_material"
-          value="Plastic"
-        ></input>
-        <label for="plastic">Plastic</label>
-        <input
-          type="radio"
-          id="metal"
-          name="recycle_material"
-          value="Metal"
-        ></input>
-        <label for="metal">Metal</label>
-        <input
-          type="text"
-          name="phone_number"
-          placeholder="Pickup contact number"
-        />
+    <Container direction="column">
+      <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
+        <FormControl padding="1em">
+          <FormLabel>Date & Time of Pickup</FormLabel>
+          <Input
+            type="datetime-local"
+            name="date"
+            placeholder="Date & Time of Pickup"
+            value={date}
+            onChange={handleChangeDate}
+            focusBorderColor="green.400"
+          />
+        </FormControl>
+        <FormControl padding="1em">
+          <FormLabel>Pickup Address</FormLabel>
+          <Input
+            type="text"
+            name="address"
+            placeholder="Pickup Address"
+            focusBorderColor="green.400"
+          />
+        </FormControl>
+        <FormControl padding="1em">
+          <FormLabel>Recycle Material</FormLabel>
+          <RadioGroup name="recycle_material">
+            <Stack direction="column">
+              <Radio id="paper" value="Paper" colorScheme="green">
+                Paper
+              </Radio>
+              <Radio id="cardboard" value="Cardboard" colorScheme="green">
+                Cardboard
+              </Radio>
+              <Radio id="plastic" value="Plastic" colorScheme="green">
+                Plastic
+              </Radio>
+              <Radio id="metal" value="Metal" colorScheme="green">
+                Metal
+              </Radio>
+            </Stack>
+          </RadioGroup>
+        </FormControl>
+        <FormControl padding="1em">
+          <FormLabel>Approximate Weight (Kg)</FormLabel>
+          <Input
+            type="text"
+            name="weight"
+            placeholder="Weight in Kg"
+            focusBorderColor="green.400"
+          />
+        </FormControl>
+        <FormControl padding="1em">
+          <FormLabel>Pickup Contact Number</FormLabel>
+          <InputGroup>
+            <InputLeftAddon children="+61" />
+            <Input
+              type="tel"
+              name="phone_number"
+              placeholder="Pickup contact number"
+              focusBorderColor="green.400"
+            />
+          </InputGroup>
+        </FormControl>
+        <FormControl padding="1em">
+          <Button type="submit">Book Pickup</Button>
+        </FormControl>
       </form>
-    </div>
+    </Container>
   );
 }

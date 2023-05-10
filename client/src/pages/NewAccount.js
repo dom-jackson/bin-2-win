@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../utils/mutations';
+import {
+  Container,
+  Input,
+  Button,
+  FormLabel,
+  FormControl,
+  FormErrorMessage,
+} from '@chakra-ui/react';
 
 const CreateAccountForm = () => {
   const [name, setName] = useState('');
@@ -20,48 +28,54 @@ const CreateAccountForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    createUser({ variables: { name, email, password } });
+    try {
+      await createUser({ variables: { name, email, password } });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error && <p>{error.message}</p>}
-      <label htmlFor="name">
-        Name
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={handleNameChange}
-          required
-        />
-      </label>
-      <label htmlFor="email">
-        Email
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-          required
-        />
-      </label>
-      <label htmlFor="password">
-        Password
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
-          required
-        />
-      </label>
-      <button type="submit" disabled={loading}>
-        Create Account
-      </button>
-    </form>
+    <Container maxW="sm">
+      <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
+        {error && <p>{error.message}</p>}
+        <FormControl padding="1em" isRequired>
+          <FormLabel htmlFor="name">Name</FormLabel>
+          <Input
+            type="text"
+            id="name"
+            value={name}
+            onChange={handleNameChange}
+            placeholder="Your name"
+          />
+        </FormControl>
+        <FormControl padding="1em" isRequired>
+          <FormLabel htmlFor="email">Email</FormLabel>
+          <Input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="Your email address"
+          />
+        </FormControl>
+        <FormControl padding="1em" isRequired>
+          <FormLabel htmlFor="password">Password</FormLabel>
+          <Input
+            type="password"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="Choose a secure password"
+          />
+        </FormControl>
+        <Button mt={4} isLoading={loading} type="submit">
+          Create Account
+        </Button>
+      </form>
+    </Container>
   );
 };
 
