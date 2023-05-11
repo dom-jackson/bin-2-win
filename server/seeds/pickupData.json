@@ -1,0 +1,50 @@
+[  
+    {    
+        "date": "2023-04-01T12:00:00.000Z",    
+        "address": "123 Main St",    
+        "recycle_material": "Plastic",   
+        "weight": 10,    
+        "phone_number": "401 123 456",    
+        "user_email": "jordan@example.com"  
+    },  
+    {    
+        "date": "2023-05-02T16:00:00.000Z",    
+        "address": "456 Elm St",    
+        "recycle_material": "Glass",    
+        "weight": 20,    
+        "phone_number": "401 123 456",    
+        "user_email": "jordan@example.com"  
+    },  
+    {    
+        "date": "2023-03-07T10:30:00.000Z",    
+        "address": "789 Oak St",    
+        "recycle_material": "Paper",    
+        "weight": 5,    
+        "phone_number": "422 555 555",    
+        "user_email": "kunal@example.com"  
+    },  
+    {    
+        "date": "2023-05-07T11:30:00.000Z",    
+        "address": "321 Pine St",    
+        "recycle_material": "Metal",    
+        "weight": 15,    
+        "phone_number": "422 555 555",    
+        "user_email": "kunal@example.com"  
+    },  
+    {    
+        "date": "2023-04-11T15:30:00.000Z",    
+        "address": "654 Maple St",    
+        "recycle_material": "Plastic",    
+        "weight": 25,    
+        "phone_number": "411 987 654",    
+        "user_email": "domjackson@example.com"  
+    },  
+    {    
+        "date": "2023-05-06T13:00:00.000Z",    
+        "address": "987 Cedar St",    
+        "recycle_material": "Glass",    
+        "weight": 30,    
+        "phone_number": "411 987 654",    
+        "user_email": "domjackson@example.com"  
+    }
+]

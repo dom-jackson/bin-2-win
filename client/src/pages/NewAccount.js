@@ -38,7 +38,7 @@ const CreateAccountForm = () => {
   };
 
   return (
-    <Container maxW="sm">
+    <Container>
       <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
         {error && <p>{error.message}</p>}
         <FormControl padding="1em" isRequired>
@@ -49,6 +49,7 @@ const CreateAccountForm = () => {
             value={name}
             onChange={handleNameChange}
             placeholder="Your name"
+            focusBorderColor="green.400"
           />
         </FormControl>
         <FormControl padding="1em" isRequired>
@@ -59,6 +60,7 @@ const CreateAccountForm = () => {
             value={email}
             onChange={handleEmailChange}
             placeholder="Your email address"
+            focusBorderColor="green.400"
           />
         </FormControl>
         <FormControl padding="1em" isRequired>
@@ -69,6 +71,7 @@ const CreateAccountForm = () => {
             value={password}
             onChange={handlePasswordChange}
             placeholder="Choose a secure password"
+            focusBorderColor="green.400"
           />
         </FormControl>
         <Button mt={4} isLoading={loading} type="submit">

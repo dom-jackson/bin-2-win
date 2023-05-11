@@ -2,6 +2,7 @@ import React from 'react';
 import Dashboard from './pages/Dashboard';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Login from './components/login';
 import { NewPickup } from './pages/NewPickup';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -29,6 +30,7 @@ function App() {
             <Routes>
               {<Route path="/book-pickup" element={<NewPickup />} />}
               <Route path="/" element={<Dashboard />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
             <Footer />
           </Router>

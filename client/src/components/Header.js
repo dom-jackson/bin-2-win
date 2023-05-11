@@ -17,7 +17,7 @@ const Header = () => {
             <Link to="/rewards">Redeem Rewards</Link>
           </li>
           <li>
-            <Link to="/NewAccount">Signup/Login</Link>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </Flex>
