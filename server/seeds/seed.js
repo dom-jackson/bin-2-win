@@ -15,7 +15,9 @@ db.once('open', async () => {
     if (!user) {
       throw new Error(`Could not find user with email ${pickup.user_email}`);
     }
-    return { ...pickup, user_id: user._id.toString() };
+    const p = { ...pickup, user_id: user._id.toString() };
+    console.log(p);
+    return p;
   });
 
   await Pickup.insertMany(pickups);

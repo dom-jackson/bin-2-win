@@ -28,6 +28,7 @@ const typeDefs = gql`
     loginUser(email: String!, password: String!): User!
   }
   type Mutation {
+    loginUser(email: String!, password: String!): User!
     createUser(name: String!, email: String!, password: String!): User!
     createPickup(
       date: String!

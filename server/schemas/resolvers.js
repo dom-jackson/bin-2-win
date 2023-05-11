@@ -1,16 +1,19 @@
 const User = require('../models/User');
+const jwt = require('jsonwebtoken');
 
 const resolvers = {
-  Query: {
+  Mutation: {
     async loginUser(_, { email, password }) {
-      const user = await User.findOne({ email, password });
+      const user = await User.findOne({ email });
       if (!user) {
         throw new Error('Invalid login credentials');
       }
-      return user;
+      if (user.password !== password) {
+        throw new Error('Invalid login credentials');
+      }
+      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+      return { user, token };
     },
-  },
-  Mutation: {
     async createUser(_, args) {
       const { name, email, password } = args;
       const user = new User({ name, email, password });
