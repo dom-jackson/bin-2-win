@@ -20,6 +20,15 @@ const typeDefs = gql`
     user_email: String!
   }
 
+  input PickupInput {
+    date: String!
+    address: String!
+    recycle_material: String!
+    weight: Int!
+    phone_number: String!
+    user_email: String!
+  }
+
   type Query {
     user(id: ID!): User!
     users: [User!]!
@@ -28,7 +37,7 @@ const typeDefs = gql`
     loginUser(email: String!, password: String!): User!
   }
   type Mutation {
-    loginUser(email: String!, password: String!): User!
+    login(email: String!, password: String!): User!
     createUser(name: String!, email: String!, password: String!): User!
     createPickup(
       date: String!
@@ -46,6 +55,7 @@ const typeDefs = gql`
       weight: Int
       phone_number: String
     ): Pickup!
+    addPickup(userId: ID!, pickupData: PickupInput!): Pickup!
     deleteUser(id: ID!): User!
     deletePickup(id: ID!): Pickup!
   }

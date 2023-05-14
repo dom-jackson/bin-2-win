@@ -8,19 +8,21 @@ db.once('open', async () => {
   await User.deleteMany({});
   await Pickup.deleteMany({});
 
-  const users = await User.insertMany(userData);
+  const users = await User.create(userData);
 
-  const pickups = pickupData.map((pickup) => {
+  for (const pickup of pickupData) {
     const user = users.find((user) => user.email === pickup.user_email);
     if (!user) {
       throw new Error(`Could not find user with email ${pickup.user_email}`);
     }
-    const p = { ...pickup, user_id: user._id.toString() };
-    console.log(p);
-    return p;
-  });
-
-  await Pickup.insertMany(pickups);
+    const pickupObj = new Pickup({
+      ...pickup,
+      user_id: user._id,
+    });
+    await pickupObj.save();
+    user.pickups.push(pickupObj._id);
+    await user.save();
+  }
 
   console.log('Data seeded!');
   process.exit(0);

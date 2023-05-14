@@ -6,12 +6,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   points: { type: Number, default: 0 },
-  pickups: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Pickup',
-    },
-  ],
+  pickups: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pickup' }],
 });
 
 const User = mongoose.model('User', userSchema);

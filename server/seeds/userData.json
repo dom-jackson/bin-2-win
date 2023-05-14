@@ -2,17 +2,20 @@
     {
       "name": "Jordan West",
       "email": "jordan@example.com",
-      "password": "password1"
+      "password": "password1",
+      "points": "2400"
     },
     {
       "name": "Kunal Choundhary",
       "email": "kunal@example.com",
-      "password": "password2"
+      "password": "password2",
+      "points": "3600"
     },
     {
         "name": "Dom Jackson",
         "email": "domjackson@example.com",
-        "password": "password3"
+        "password": "password3",
+        "points": "1380"
       }
   ]
   
