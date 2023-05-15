@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import { NewPickup } from './pages/NewPickup';
 import Account from './pages/Account';
+import Rewards from './pages/Rewards';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,6 +46,7 @@ function App() {
               {<Route path="/book-pickup" element={<NewPickup />} />}
               <Route path="/" element={<Dashboard />} />
               <Route path="/account" element={<Account />} />
+              <Route path="/rewards" element={<Rewards />} />
             </Routes>
             <Footer />
           </Router>
