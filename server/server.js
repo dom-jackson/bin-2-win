@@ -1,6 +1,7 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+const { authMiddleware } = require('./utils/auth');
 const typeDefs = require('./schemas/typeDefs');
 const resolvers = require('./schemas/resolvers');
 const db = require('./config/connection');
@@ -9,30 +10,33 @@ const app = express();
 
 const PORT = 3001;
 
-const apolloServer = new ApolloServer({
+const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: async () => ({
-    db,
-  }),
+  context: authMiddleware,
 });
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 
-const startServer = async () => {
-  try {
-    await db;
-    await apolloServer.start();
-    apolloServer.applyMiddleware({ app });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+const startApolloServer = async (typeDefs, resolvers) => {
+  await server.start();
+  server.applyMiddleware({ app });
+
+  db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(
-        `Use GraphQL at http://localhost:${PORT}${apolloServer.graphqlPath}`
+        `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
       );
     });
-  } catch (error) {
-    console.error(`Server failed to start: ${error}`);
-  }
+  });
 };
 
-startServer();
+startApolloServer(typeDefs, resolvers);

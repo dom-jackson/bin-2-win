@@ -20,6 +20,11 @@ const typeDefs = gql`
     user_email: String!
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   input PickupInput {
     date: String!
     address: String!
@@ -30,15 +35,16 @@ const typeDefs = gql`
   }
 
   type Query {
-    user(id: ID!): User!
-    users: [User!]!
+    user(userId: ID!): User
+    users: [User]!
     pickup(id: ID!): Pickup!
     pickups: [Pickup!]
-    loginUser(email: String!, password: String!): User!
+    me: User
   }
   type Mutation {
-    login(email: String!, password: String!): User!
-    createUser(name: String!, email: String!, password: String!): User!
+    login(email: String!, password: String!): Auth
+    createUser(name: String!, email: String!, password: String!): Auth
+
     createPickup(
       date: String!
       address: String!
@@ -46,18 +52,6 @@ const typeDefs = gql`
       weight: Int!
       phone_number: String!
     ): Pickup!
-    updateUser(id: ID!, name: String, email: String, password: String): User!
-    updatePickup(
-      id: ID!
-      date: String
-      address: String
-      recycle_material: String
-      weight: Int
-      phone_number: String
-    ): Pickup!
-    addPickup(userId: ID!, pickupData: PickupInput!): Pickup!
-    deleteUser(id: ID!): User!
-    deletePickup(id: ID!): Pickup!
   }
 `;
 

@@ -9,6 +9,7 @@ import {
   FormLabel,
   InputGroup,
   InputLeftAddon,
+  Heading,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
@@ -27,6 +28,7 @@ export function NewPickup() {
 
   return (
     <Container direction="column">
+      <Heading textAlign="center">Book a Pickup</Heading>
       <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
         <FormControl padding="1em">
           <FormLabel>Date & Time of Pickup</FormLabel>

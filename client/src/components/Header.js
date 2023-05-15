@@ -8,16 +8,26 @@ const Header = () => {
       <Box boxSize="md">
         <Image src="./images/Logo3.png" alt="Bin 2 Win logo" />
       </Box>
-      <Flex as="nav" p="10px" alignItems="center" gap="30px">
-        <ul>
+      <Flex as="nav" p="10px">
+        <ul
+          style={{
+            listStyleType: 'none',
+          }}
+        >
           <li>
-            <Link to="/book-pickup">Book a Pickup</Link>
+            <Link to="/book-pickup" fontSize="lg">
+              Book a Pickup
+            </Link>
           </li>
           <li>
-            <Link to="/rewards">Redeem Rewards</Link>
+            <Link to="/rewards" fontSize="lg">
+              Redeem Rewards
+            </Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link to="/account" fontSize="lg">
+              Login/Signup
+            </Link>
           </li>
         </ul>
       </Flex>

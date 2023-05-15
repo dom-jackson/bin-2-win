@@ -7,7 +7,7 @@ import {
   Button,
   FormLabel,
   FormControl,
-  FormErrorMessage,
+  Heading,
 } from '@chakra-ui/react';
 
 const CreateAccountForm = () => {
@@ -39,13 +39,14 @@ const CreateAccountForm = () => {
 
   return (
     <Container>
+      <Heading textAlign="center">Create Account</Heading>
       <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
         {error && <p>{error.message}</p>}
         <FormControl padding="1em" isRequired>
           <FormLabel htmlFor="name">Name</FormLabel>
           <Input
             type="text"
-            id="name"
+            id="signup-name"
             value={name}
             onChange={handleNameChange}
             placeholder="Your name"
@@ -56,7 +57,7 @@ const CreateAccountForm = () => {
           <FormLabel htmlFor="email">Email</FormLabel>
           <Input
             type="email"
-            id="email"
+            id="signup-email"
             value={email}
             onChange={handleEmailChange}
             placeholder="Your email address"
@@ -67,7 +68,7 @@ const CreateAccountForm = () => {
           <FormLabel htmlFor="password">Password</FormLabel>
           <Input
             type="password"
-            id="password"
+            id="signup-password"
             value={password}
             onChange={handlePasswordChange}
             placeholder="Choose a secure password"
