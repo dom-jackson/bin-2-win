@@ -1,0 +1,31 @@
+{
+  "name": "bin-2-win",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd server && node server.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dom-jackson/bin-2-win.git"
+  },
+  "dependencies": {
+    "apollo-server-express": "^3.12.0",
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.1.0",
+    "nodemon": "^2.0.22"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dom-jackson/bin-2-win/issues"
+  },
+  "homepage": "https://github.com/dom-jackson/bin-2-win#readme"
+}
