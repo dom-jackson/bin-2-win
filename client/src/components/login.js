@@ -38,15 +38,15 @@ const Login = (props) => {
 
       Auth.login(data.login.token);
       console.log(data.loginUser);
-      window.location.replace('/');
+      // window.location.replace('/');
     } catch (error) {
       console.log(error);
     }
 
-    setFormState({
-      email: '',
-      password: '',
-    });
+    // setFormState({
+    //   email: '',
+    //   password: '',
+    // });
   };
 
   return (
@@ -62,7 +62,7 @@ const Login = (props) => {
             <FormLabel htmlFor="email">Email:</FormLabel>
             <Input
               type="email"
-              id="email"
+              name="email"
               value={formState.email}
               onChange={handleChange}
               required
@@ -73,7 +73,7 @@ const Login = (props) => {
             <FormLabel htmlFor="password">Password:</FormLabel>
             <Input
               type="password"
-              id="password"
+              name="password"
               value={formState.password}
               onChange={handleChange}
               required

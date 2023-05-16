@@ -7,7 +7,7 @@ const pickupSchema = new mongoose.Schema({
   recycle_material: { type: String, required: true },
   weight: { type: Number, required: true },
   phone_number: { type: String, required: true },
-  user_id: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
   },

@@ -15,6 +15,7 @@ const CreateAccountForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [createUser, { loading, error }] = useMutation(CREATE_USER);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -32,6 +33,7 @@ const CreateAccountForm = () => {
     e.preventDefault();
     try {
       await createUser({ variables: { name, email, password } });
+      setSuccessMessage('Account created, please login.');
     } catch (err) {
       console.log(err);
     }
@@ -79,6 +81,9 @@ const CreateAccountForm = () => {
           Create Account
         </Button>
       </form>
+      {successMessage && (
+        <p style={{ textAlign: 'center' }}>{successMessage}</p>
+      )}
     </Container>
   );
 };

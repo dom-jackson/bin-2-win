@@ -9,12 +9,23 @@ import { Container } from '@chakra-ui/react';
 
 const Footer = () => {
   return (
-    <Container as="footer">
-      <div>
+    <Container as="footer" style={{ marginTop: '24px' }}>
+      <div style={{ textAlign: 'center' }}>
         <div>
-          <h3>An application created by Dominic Jackson</h3>
+          <h3>Thank you for using this application</h3>
+          <br />
+          <h3>This application was built by Dominic Jackson</h3>
           <div>
-            <ul className="icons">
+            <ul
+              className="icons"
+              style={{
+                listStyle: 'none',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '8px',
+              }}
+            >
               <li>
                 <a href="https://github.com/dom-jackson">
                   <FontAwesomeIcon icon={faGithub} size="2x" />

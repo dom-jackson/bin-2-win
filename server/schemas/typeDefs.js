@@ -11,13 +11,13 @@ const typeDefs = gql`
   }
 
   type Pickup {
-    _id: ID!
-    date: String!
-    address: String!
-    recycle_material: String!
-    weight: Int!
-    phone_number: String!
-    user_email: String!
+    _id: ID
+    date: String
+    address: String
+    recycle_material: String
+    weight: Float
+    phone_number: String
+    user: User
   }
 
   type Auth {
@@ -29,7 +29,7 @@ const typeDefs = gql`
     date: String!
     address: String!
     recycle_material: String!
-    weight: Int!
+    weight: Float!
     phone_number: String!
     user_email: String!
   }
@@ -39,7 +39,6 @@ const typeDefs = gql`
     users: [User]!
     pickup(id: ID!): Pickup!
     pickups: [Pickup!]
-    me: User
   }
   type Mutation {
     login(email: String!, password: String!): Auth

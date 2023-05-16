@@ -26,3 +26,30 @@ export const LOGIN_MUTATION = gql`
     }
   }
 `;
+export const CREATE_PICKUP = gql`
+  mutation createPickup(
+    $date: String!
+    $address: String!
+    $recycle_material: String!
+    $weight: Int!
+    $phone_number: String!
+  ) {
+    createPickup(
+      date: $date
+      address: $address
+      recycle_material: $recycle_material
+      weight: $weight
+      phone_number: $phone_number
+    ) {
+      _id
+      date
+      address
+      recycle_material
+      weight
+      phone_number
+      user {
+        _id
+      }
+    }
+  }
+`;
